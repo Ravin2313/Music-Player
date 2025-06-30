@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+
+      .ai-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(circle at 50% 50%, #0ff 0%, #111 80%);
+        animation: pulse 12s infinite alternate;
+        z-index: -1;
+        opacity: 0.15;
+      }
+
+      @keyframes pulse {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+      }
+
+      .glow {
+        text-align: center;
+        font-size: 2.2rem;
+        color: #0ff;
+        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+        margin-bottom: 30px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #00eaff;
+        text-shadow: 0 0 10px #00f0ff;
+        text-align: center;
+      }
+
+      .song-list,
+      .playlist-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .song-button {
+        background: rgba(0, 255, 255, 0.08);
+        border: 2px solid #00f0ff;
+        border-radius: 30px;
+        padding: 12px 24px;
+        color: #00f0ff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 0 10px #00e5ff;
+      }
+
+      .song-button:hover {
+        background: rgba(0, 255, 255, 0.2);
+        transform: scale(1.05);
+        box-shadow: 0 0 25px #00e5ff;
+      }
+
+      .playlist-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #playerControls {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      #nowPlaying {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #0ff;
+        text-shadow: 0 0 5px #00f0ff;
+      }
+
+      audio {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .glow-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #00fff7, #00d4ff);
+        border: none;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 1rem;
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 12px #00fff7, 0 0 25px #00e1ff;
+        margin: 20px auto 0;
+        text-align: center;
+      }
+
+      .glow-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px #00fff7, 0 0 40px #00e1ff;
+      }
+
+      .centered {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ai-background"></div>
+
+    <div class="container">
+      <h1 class="glow">🎶 AI Music Player</h1>
+
+      <!-- Uploaded Songs -->
+      <div class="section">
+        <h2 class="section-title">📂 All Uploaded Songs</h2>
+        <div id="songList" class="song-list"></div>
+      </div>
+
+      <!-- Playlist Songs -->
+      <div class="section">
+        <h2 class="section-title">🎼 My Playlist</h2>
+        <div id="myPlaylist" class="playlist-list"></div>
+      </div>
+
+      <!-- Audio Player -->
+      <div id="playerControls" style="display: none">
+        <h3 id="nowPlaying">Now Playing:</h3>
+        <audio controls id="audioPlayer"></audio>
+      </div>
+
+      <div class="centered">
+        <a href="upload.html" class="glow-btn">⬆️ Upload New Song</a>
+      </div>
+    </div>
+
+    <script src="script-player.js"></script>
+  </body>
+</html>

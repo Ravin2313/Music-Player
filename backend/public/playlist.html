@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Playlist</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .playlist-entry {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+      }
+
+      .playlist-entry button:first-child {
+        margin-right: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ai-background"></div>
+
+    <div class="container">
+      <h1 class="glow">🎼 My Playlist</h1>
+      <div id="playlistSongs"></div>
+
+      <div id="playerControls" style="display: none; margin-top: 30px">
+        <h3 id="nowPlaying">Now Playing:</h3>
+        <audio controls id="audioPlayer"></audio>
+      </div>
+
+      <a href="player.html" class="glow-btn" style="margin-top: 30px"
+        >🎧 Back to All Songs</a
+      >
+    </div>
+
+    <script src="script-playlist.js"></script>
+  </body>
+</html>

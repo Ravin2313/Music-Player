@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Music Portal</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #000;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .ai-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(circle at 50% 50%, #0ff 0%, #111 80%);
+        animation: pulse 10s infinite alternate;
+        z-index: -2;
+      }
+
+      @keyframes pulse {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .glow {
+        font-size: 3rem;
+        margin-bottom: 30px;
+        text-shadow: 0 0 20px #0ff, 0 0 40px #00f0ff;
+        animation: glowIn 1s ease forwards;
+      }
+
+      @keyframes glowIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .portal-btn {
+        background: linear-gradient(135deg, #00fff7, #00d4ff);
+        border: none;
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        margin: 15px;
+        color: #000;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        box-shadow: 0 0 15px #00fff7, 0 0 25px #00d4ff;
+      }
+
+      .portal-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px #00fff7, 0 0 60px #00e1ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ai-background"></div>
+
+    <div class="container">
+      <h1 class="glow">🎧 Welcome to AI Music Portal</h1>
+
+      <a href="player.html">
+        <button class="portal-btn">🎶 Open Music Player</button>
+      </a>
+
+      <a href="upload.html">
+        <button class="portal-btn">⬆️ Upload a Song</button>
+      </a>
+    </div>
+  </body>
+</html>
